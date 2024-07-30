@@ -14,6 +14,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/use-toast'
 import posts from '@/data/posts'
 import BackButton from "@/components/BackButton"
 
@@ -39,6 +40,8 @@ interface PostEditPageProps {
 };
 
 const PostsEditPage = ({ params }: PostEditPageProps) => {
+  const { toast } = useToast();
+
   const post = posts.find((post) => post.id === params.id);
   console.log('post: ', post);   
 
@@ -53,7 +56,11 @@ const PostsEditPage = ({ params }: PostEditPageProps) => {
   });
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log('data: ', data);
+    // console.log('data: ', data);
+    toast({
+        title: 'Post has been updated successfully',
+        description: `Updated by ${post?.author} on ${post?.date}`,
+    });
   };
 
   return (

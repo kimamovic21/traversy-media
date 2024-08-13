@@ -6,6 +6,7 @@ import { useLoginMutation } from '../slices/usersApiSlice'
 import { setCredentials } from '../slices/authSlice'
 import { toast } from 'react-toastify'
 import FormContainer from '../components/FormContainer'
+import Loader from '../components/Loader'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
@@ -34,7 +35,7 @@ const LoginScreen = () => {
     } catch (err) {
       toast.error(err?.data?.message || err.error)
     }
-  };
+  }
 
   return (
     <FormContainer>
@@ -71,7 +72,7 @@ const LoginScreen = () => {
         </Button>
       </Form>
 
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
 
       <Row className='py-3'>
         <Col>

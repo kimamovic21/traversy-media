@@ -23,3 +23,14 @@ model User {
   updatedAt DateTime @updatedAt
   transactions Transaction[]
 }
+
+model Transaction {
+  id String @id @default(uuid())
+  text String
+  amount Float
+  // Relation to user
+  userId String
+  user User @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  @@index([userId])
+}

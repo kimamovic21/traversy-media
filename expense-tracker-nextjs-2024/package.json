@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.0.0",
     "@prisma/client": "^5.21.1",
     "expense-tracker-nextjs-2024": "file:",
     "next": "14.2.4",

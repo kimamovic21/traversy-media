@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Roboto } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
+import './globals.css';
 
-const roboto = Roboto({ weight: '400' ,subsets: ["latin"] });
+const roboto = Roboto({ weight: '400' ,subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Expense Tracker",
-  description: "Track your expenses and create a budget",
+  title: 'Expense Tracker',
+  description: 'Track your expenses and create a budget',
 };
 
 export default function RootLayout({
@@ -15,8 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className={roboto.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }

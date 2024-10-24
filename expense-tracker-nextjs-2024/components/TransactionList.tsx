@@ -1,15 +1,23 @@
 import { Transaction } from '@/types/Transaction';
+import getTransactions from '@/app/actions/getTransactions';
 
-function TransactionList() {
-  let transactions = [];
+const TransactionList = async () => {
+  const { transactions, error } = await getTransactions();
 
-  return ( 
+  if (error) {
+    return <p className='error'>{error}</p>;
+  };
+
+  return (
     <>
       <h3>History</h3>
       <ul className='list'>
-        {transactions && transactions.map((transaction: Transaction) => (
-            <p>{transaction.text}</p>
-        ))}
+        {transactions &&
+          transactions.map((transaction: Transaction) => (
+            <p key={transaction.id}>
+              {transaction.text}
+            </p>
+          ))}
       </ul>
     </>
   );

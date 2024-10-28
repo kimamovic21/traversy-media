@@ -2,14 +2,22 @@
 
 import { useEffect } from 'react';
 import { useFormState } from 'react-dom';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 import Link from 'next/link';
 import createSession from '../actions/createSession';
 
 const LoginPage = () => {
   const [state, formAction] = useFormState(createSession, {});
 
+  const router = useRouter();
+
   useEffect(() => {
-    if (state.error) console.error(state.error);
+    if (state.error) toast.error(state.error);
+    if (state.success) {
+      toast.success('Logged in successfully!');
+      router.push('/');
+    };
   }, [state]);
 
   return (

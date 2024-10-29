@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const RoomCard = ({ room }) => {
   const bucketId = process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKED_ROOMS;
-  const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT
+  const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT;
 
   const imageUrl = `https://cloud.appwrite.io/v1/storage/buckets/${bucketId}/files/${room.image}/view?project=${projectId}`;
 

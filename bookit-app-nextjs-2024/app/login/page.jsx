@@ -4,11 +4,13 @@ import { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import { useAuth } from '@/context/authContext';
 import Link from 'next/link';
 import createSession from '../actions/createSession';
 
 const LoginPage = () => {
   const [state, formAction] = useFormState(createSession, {});
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const router = useRouter();
 
@@ -16,8 +18,9 @@ const LoginPage = () => {
     if (state.error) toast.error(state.error);
     if (state.success) {
       toast.success('Logged in successfully!');
+      setIsAuthenticated(true);
       router.push('/');
-    };
+    }
   }, [state]);
 
   return (
@@ -29,7 +32,10 @@ const LoginPage = () => {
           </h2>
 
           <div className='mb-4'>
-            <label htmlFor='email' className='block text-gray-700 font-bold mb-2'>
+            <label
+              htmlFor='email'
+              className='block text-gray-700 font-bold mb-2'
+            >
               Email
             </label>
             <input
@@ -37,12 +43,16 @@ const LoginPage = () => {
               id='email'
               name='email'
               className='border rounded w-full py-2 px-3'
+              autoComplete='email'
               required
             />
           </div>
 
           <div className='mb-6'>
-            <label htmlFor='password' className='block text-gray-700 font-bold mb-2'>
+            <label
+              htmlFor='password'
+              className='block text-gray-700 font-bold mb-2'
+            >
               Password
             </label>
             <input
@@ -50,6 +60,7 @@ const LoginPage = () => {
               id='password'
               name='password'
               className='border rounded w-full py-2 px-3'
+              autoComplete='password'
               required
             />
           </div>

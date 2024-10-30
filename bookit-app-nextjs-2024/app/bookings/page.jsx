@@ -1,4 +1,5 @@
 import getMyBookings from '../actions/getMyBookings';
+import Heading from '@/components/Heading';
 import BookedRoomCard from '@/components/BookedRoomCard';
 
 const BookingsPage = async () => {
@@ -6,6 +7,7 @@ const BookingsPage = async () => {
 
   return (
     <>
+      <Heading title='My Bookings' />
       {bookings.length === 0 ? (
         <p className='text-gray-600 mt-4'>You have no bookings</p>
       ) : (

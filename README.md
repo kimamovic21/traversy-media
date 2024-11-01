@@ -19,4 +19,4 @@ Demo Live: https://traversy-media-expense-tracker-nextjs-2024.vercel.app
 ### Booking App Next.js 2024
 
 Youtube: https://www.youtube.com/watch?v=l9zh0pqEHyc
-Demo Live: https://bookit-app-nextjs-2024.vercel.app/
+Demo Live: https://traversy-media-bookit-app-nextjs-2024.vercel.app/

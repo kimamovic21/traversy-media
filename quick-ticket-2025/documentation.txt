@@ -14,3 +14,9 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -in package.json file add command postinstall
 -type command: npx prisma studio
 -type command: npm run dev
+-in component app/page.tsx import React icon and component Link
+-in jsx create HTML elements with Tailwind CSS classes
+-in globals.css create @keyframes slideUp
+-create class .animate-slide
+-in folder app create folder tickets and component page.tsx
+-in folder tickets create folder new and component page.tsx

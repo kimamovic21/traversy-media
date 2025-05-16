@@ -1,0 +1,3 @@
+NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
+
+-install Next.js project with command npx create-next-app@latest

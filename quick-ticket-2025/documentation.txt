@@ -1,7 +1,16 @@
 NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 
 -install Next.js project with command npx create-next-app@latest
--open web page https://sentry.io/welcome/ and create a project
+-open web page: https://sentry.io/welcome/ and create a project
 -type command: npx @sentry/wizard@latest -i nextjs --saas --org full-stack-apps --project quick-ticket
 -in .env file add variable SENTRY_AUTH_TOKEN
 -open route: http://localhost:3000/sentry-example-page and click Throw Sample Error button
+-open web page: https://neon.tech/ and create new project and database
+-in .env file add variable DATABASE_URL
+-type command: npx prisma init
+-in schema.prisma create model Ticket
+-type command: npx prisma migrate dev --name init
+-type command: npx prisma generate
+-in package.json file add command postinstall
+-type command: npx prisma studio
+-type command: npm run dev

@@ -1,3 +1,7 @@
 NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 
 -install Next.js project with command npx create-next-app@latest
+-open web page https://sentry.io/welcome/ and create a project
+-type command: npx @sentry/wizard@latest -i nextjs --saas --org full-stack-apps --project quick-ticket
+-in .env file add variable SENTRY_AUTH_TOKEN
+-open route: http://localhost:3000/sentry-example-page and click Throw Sample Error button

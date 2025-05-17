@@ -43,3 +43,8 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -type command: npm i sonner
 -in component layout.tsx import component Toaster from package sonner
 -in component ticket-form.tsx import function toast from package sonner
+-in ticket.actions.ts create and export async function getTickets()
+-in component tickets/page.tsx import function getTickets from ticket.actions.ts file
+-in function TicketsPage() create variable const tickets
+-create function getPriorityClass()
+-open route: http://localhost:3000/tickets

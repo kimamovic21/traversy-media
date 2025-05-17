@@ -1,7 +1,7 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/db/prisma';
-import { logEvent } from '@/utils/sentry'; 
+import { logEvent } from '@/utils/sentry';
 
 export async function createTicket(
   prevState: { success: boolean; message: string },
@@ -53,7 +53,34 @@ export async function createTicket(
 
     return {
       success: false,
-      message: 'An error occured while creating the ticket',
+      message: 'An error occurred while creating the ticket',
     };
+  };
+};
+
+export async function getTickets() {
+  try {
+    const tickets = await prisma.ticket.findMany({
+      orderBy: { createdAt: 'desc' },
+    });
+
+    logEvent(
+      'Fetched ticket list',
+      'ticket',
+      { count: tickets.length },
+      'info'
+    );
+
+    return tickets;
+  } catch (error) {
+    logEvent(
+      'Error fetching tickets', 
+      'ticket', 
+      {}, 
+      'error', 
+      error
+    );
+
+    return [];
   };
 };

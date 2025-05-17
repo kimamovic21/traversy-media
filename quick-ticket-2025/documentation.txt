@@ -48,3 +48,13 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -in function TicketsPage() create variable const tickets
 -create function getPriorityClass()
 -open route: http://localhost:3000/tickets
+-in ticket.actions.ts file create and export async function getTicketById()
+-in folder tickets create folder [id] and component page.tsx
+-in component [id]/page.tsx create and export function TicketDetailsPage() as default
+-import functions getTicketById, notFound and logEvent
+-import component Link
+-in folder utils create ui.ts file
+-in ui.ts file export function getPriorityClass
+-in component tickets/page.tsx import function getPriorityClass from ui.ts file
+-create vercel.json file
+-open route: http://localhost:3000/tickets/[id]

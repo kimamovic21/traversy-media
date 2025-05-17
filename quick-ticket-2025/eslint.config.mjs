@@ -2,6 +2,9 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -14,6 +17,17 @@ const eslintConfig = [
 
   {
     files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: "./tsconfig.json", 
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tsPlugin,
+    },
     rules: {
       "@typescript-eslint/no-require-imports": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
@@ -21,6 +35,8 @@ const eslintConfig = [
       "@typescript-eslint/no-unused-expressions": "warn",
       "@typescript-eslint/no-this-alias": "warn",
       "@typescript-eslint/no-empty-object-type": "warn",
+      "@typescript-eslint/no-unnecessary-type-constraint": "warn",
+      "@typescript-eslint/no-wrapper-object-types": "warn",
     },
   },
 ];

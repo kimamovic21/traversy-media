@@ -58,3 +58,5 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -in component tickets/page.tsx import function getPriorityClass from ui.ts file
 -create vercel.json file
 -open route: http://localhost:3000/tickets/[id]
+-create folder components and component Navbar.tsx
+-in component layout.tsx import component Navbar

@@ -13,10 +13,13 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: ["src/generated/prisma/**"],
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["**/*.ts", "**/*.js", "**/*.tsx", "**/*.jsx"],
     languageOptions: {
       parser: tsParser,
       parserOptions: {

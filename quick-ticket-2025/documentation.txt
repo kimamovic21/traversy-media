@@ -20,3 +20,26 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -create class .animate-slide
 -in folder app create folder tickets and component page.tsx
 -in folder tickets create folder new and component page.tsx
+-in folder src create folder actions
+-in folder actions create ticket.actions.ts file
+-in ticket.actions.ts file add directive 'use server'
+-create and export function createTicket()
+-create component ticket-form.tsx
+-in component new/page.tsx import component NewTicketForm from component ticket-form.tsx
+-in component ticket-form.tsx create and export function NewTicketForm()
+-import functions useActionState and useEffect from package react
+-import function useRouter from package next/navigation
+-import function createTicket from ticket.actions.ts file
+-open route: http://localhost:3000/tickets/new
+-create folder db and prisma.ts file
+-in ticket.actions.ts file import prisma object
+-import revalidatePath function from package next/cache
+-add try - catch blocks
+-in try block create variable const ticket
+-create folder utils and sentry.ts file
+-in sentry.ts file create and export function logEvent()
+-in ticket.actions.ts file import function logEvent from sentry.ts file
+-open link: https://www.npmjs.com/package/sonner
+-type command: npm i sonner
+-in component layout.tsx import component Toaster from package sonner
+-in component ticket-form.tsx import function toast from package sonner

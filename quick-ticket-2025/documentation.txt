@@ -60,3 +60,8 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -open route: http://localhost:3000/tickets/[id]
 -create folder components and component Navbar.tsx
 -in component layout.tsx import component Navbar
+-in schema.prisma file create model User
+-add to model Ticket relation with model User
+-type command: npx prisma migrate dev --name add-user-model
+-type command: npx prisma generate
+-type command: npx prisma studio

@@ -1,8 +1,16 @@
+import { redirect } from 'next/navigation';
 import { getTickets } from '@/actions/ticket.actions';
 import { getPriorityClass } from '@/utils/ui';
+import { getCurrentUser } from '@/lib/current-user';
 import Link from 'next/link';
 
 const TicketsPage = async () => {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect('/login');
+  };
+
   const tickets = await getTickets();
 
   return (

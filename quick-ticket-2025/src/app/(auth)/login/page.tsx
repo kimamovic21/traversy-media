@@ -1,15 +1,15 @@
 import { redirect } from 'next/navigation';
 import { getCurrentUser } from '@/lib/current-user';
-import RegisterForm from './register-form';
+import LoginForm from './login-form'; 
 
-const RegisterPage = async () => {
+const LoginPage = async () => {
   const user = await getCurrentUser();
 
   if (user) {
     redirect('/tickets');
   };
-  
-  return <RegisterForm />;
+
+  return <LoginForm />;
 };
 
-export default RegisterPage;
+export default LoginPage;

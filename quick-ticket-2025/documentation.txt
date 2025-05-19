@@ -111,3 +111,27 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -in jsx add ternary condition for variable user
 -in auth.actions.ts file import function removeAuthCookie from auth.ts file
 -create and export async function logoutUser()
+-in folder components create component LogoutButton.tsx
+-in component Navbar.tsx import component LogoutButton from component LogoutButton.tsx
+-open route: http://localhost:3000/login
+-in folder (auth) create folder login and component page.tsx
+-in component login/page.tsx create and export function LoginPage
+-in auth.actions.ts file create and export async function loginUser()
+-in folder login create and export function LoginForm()
+-in component login/page.tsx import component LoginForm from login-form.tsx 
+-in component login-form.tsx import function loginUser from auth.actions.ts file
+-create component register-form.tsx
+-in component register-form.tsx create and export function RegisterForm() as default
+-in component register/page.tsx import component RegisterForm from component register-form.tsx
+-in ticket.actions.ts file import function getCurrentUser from current-user.ts file
+-in functions createTicket() and getTickets() create variable const user
+-add conditions if (!user)
+-in function create() add object user
+-in component tickets/page.tsx import function getCurrentUser from current-user.ts file
+-in function TicketsPage() create variable const user 
+-add condition if (!user)
+-open route: http://localhost:3000/tickets
+-in components login/page.tsx and register/page.tsx import functions redirect and getCurrentUser 
+-add to functions LoginPage() and RegisterPage() keyword async
+-create variables const user
+-add conditions if (user)

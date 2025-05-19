@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import { getTicketById } from '@/actions/ticket.actions';
-import { getPriorityClass } from '@/utils/ui'; 
+import { getPriorityClass } from '@/utils/ui';
 import { logEvent } from '@/utils/sentry';
 import Link from 'next/link';
+import CloseTicketButton from '@/components/CloseTicketButton';
 
 const TicketDetailsPage = async (props: {
   params: Promise<{ id: string }>;
@@ -24,20 +25,22 @@ const TicketDetailsPage = async (props: {
   return (
     <div className='min-h-screen bg-blue-50 p-8'>
       <div className='max-w-2xl mx-auto bg-white rounded-lg shadow border border-gray-200 p-8 space-y-6'>
-        <h1 className='text-3xl font-bold text-blue-600'>{ticket.subject}</h1>
+        <h2 className='text-3xl font-bold text-blue-600'>
+          {ticket.subject}
+        </h2>
 
         <div className='text-gray-700'>
-          <h2 className='text-lg font-semibold mb-2'>Description</h2>
+          <h3 className='text-lg font-semibold mb-2'>Description</h3>
           <p>{ticket.description}</p>
         </div>
 
         <div className='text-gray-700'>
-          <h2 className='text-lg font-semibold mb-2'>Priority</h2>
+          <h3 className='text-lg font-semibold mb-2'>Priority</h3>
           <p className={getPriorityClass(ticket.priority)}>{ticket.priority}</p>
         </div>
 
         <div className='text-gray-700'>
-          <h2 className='text-lg font-semibold mb-2'>Created At</h2>
+          <h3 className='text-lg font-semibold mb-2'>Created At</h3>
           <p>{new Date(ticket.createdAt).toLocaleString()}</p>
         </div>
 
@@ -47,6 +50,13 @@ const TicketDetailsPage = async (props: {
         >
           ← Back to Tickets
         </Link>
+
+        {ticket.status !== 'Closed' && (
+          <CloseTicketButton
+            ticketId={ticket.id}
+            isClosed={ticket.status === 'Closed'}
+          />
+        )}
       </div>
     </div>
   );

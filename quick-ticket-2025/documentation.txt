@@ -146,3 +146,13 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -in jsx create HTML elements with Tailwind CSS classes
 -in component tickets/page.tsx import component TicketItem from component TicketItem.tsx
 -open route: http://localhost:3000/tickets
+-in ticket.actions.ts file create and export async function closeTicket()
+-add to function closeTicket() parameters prevState and formData with types
+-add to function closeTicket() type Promise
+-in folder components create component CloseTicketButton.tsx
+-in component new/page.tsx import component CloseTicketButton from component CloseTicketButton.tsx
+-in component new/page.tsx import functions redirect and getCurrentUser
+-create variable const user
+-add condition if (!user)
+-add to function NewTicketPage() keyword async
+-open route: http://localhost:3000/tickets

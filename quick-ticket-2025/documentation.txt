@@ -65,3 +65,39 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -type command: npx prisma migrate dev --name add-user-model
 -type command: npx prisma generate
 -type command: npx prisma studio
+-open link: https://www.npmjs.com/package/cookie
+-open link: https://www.npmjs.com/package/bcrypt
+-open link: https://www.npmjs.com/package/jose
+-type command: npm i bcrypt jose cookie
+-type command: openssl rand -base64 32
+-create folder lib and auth.ts file
+-in auth.ts file import functions SignJWT, jwtVerify from package jose
+-type command: npm i --save-dev @types/bcrypt
+-import function cookies from package next/headers
+-import function logEvent from sentry.ts file
+-create variables const secret and cookieName
+-create and export async function signAuthToken() with parameter payload
+-create and export async function verifyAuthToken() with parameter token
+-create and export async function setAuthCookie() with parameter token
+-create and export async functions getAuthCookie() and removeAuthCookie()
+-in folder actions create auth.actions.ts file
+-in auth.actions.ts file add directive 'use server'
+-import objects prisma and bcrypt
+-import function logEvent from sentry.ts file
+-import functions signAuthToken and setAuthCookie from auth.ts file
+-create type ResponseResult
+-create and export async function registerUser()
+-in folder app create folder (auth)
+-in folder (auth) create component page.tsx
+-in component register/page.tsx add directive 'use client'
+-import functions useActionState & useEffect from package react
+-import function useRouter from package next/navigation
+-import function toast from package sonner
+-import function registerUser from auth.actions.ts
+-create and export function RegisterPage()
+-create variable const initialState 
+-create variable const router
+-invoke function useActionState(registerUser, initialState)
+-invoke function useEffect()
+-in jsx create HTML elements with Tailwind CSS classes
+-open route: http://localhost:3000/register

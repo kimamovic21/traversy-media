@@ -101,3 +101,13 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -invoke function useEffect()
 -in jsx create HTML elements with Tailwind CSS classes
 -open route: http://localhost:3000/register
+-in folder lib create current-user.ts file
+-in current-user.ts file import functions verifyAuthToken and getAuthCookie from auth.ts file
+-import object prisma from prisma.ts file
+-create type AuthPayload
+-create and export function getCurrentUser()
+-in component Navbar.tsx import function getCurrentUser from current-user.ts file
+-in function Navbar() create variable const user
+-in jsx add ternary condition for variable user
+-in auth.actions.ts file import function removeAuthCookie from auth.ts file
+-create and export async function logoutUser()

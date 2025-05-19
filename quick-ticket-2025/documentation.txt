@@ -135,3 +135,14 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 -add to functions LoginPage() and RegisterPage() keyword async
 -create variables const user
 -add conditions if (user)
+-in folder components create component TicketItem.tsx
+-in component TicketItem.tsx create and export function TicketItem() as default
+-in component TicketItem.tsx import type Ticket
+-import function getPriorityClass 
+-import component Link from package next/link
+-create type TicketItemProps
+-add to function TicketItem() parameter ticket
+-create variable const isClosed
+-in jsx create HTML elements with Tailwind CSS classes
+-in component tickets/page.tsx import component TicketItem from component TicketItem.tsx
+-open route: http://localhost:3000/tickets
